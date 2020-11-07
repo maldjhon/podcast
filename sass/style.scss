@@ -1,0 +1,725 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap');
+@import "variables";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{
+    margin: 10px 16px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        .leftColumn{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.center{
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sizeTitle{
+    font-family: $letterPlexSans;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+.sizeParagraph{
+    font-family: $letterPlexMono;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.sizeSubTitle{
+    font-family: $letterPlexSans;
+    font-size: 24px;
+    font-weight:600;
+}
+
+.sizeButton{
+    font-family: $letterPlexMono;
+    font-size: 18px;
+    background-color: $buttonColor;
+    border: none;
+}
+
+/*------------Header---------------*/
+
+.menu{
+    width: 20px;
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &::before,
+    &::after{   
+        content: '';
+        height: 3px;
+        border-radius: 2px;
+        background-color: $blackColor;    
+    }
+    .icono{
+        height: 3px;
+        background-color: $blackColor;
+        border-radius: 2px;
+        margin: 2px 0px;
+    }
+    
+}
+
+.menuCheck{
+    position: absolute;
+    visibility: hidden;
+}
+
+.menuMobile{
+    width: 100%;
+    background-color: $baseColor;
+    position: absolute;
+    left: -100%;
+    top: 44px;
+    display: none;
+    z-index: 1;
+    a{
+        color: $whiteColor;
+        &.episode{
+            padding: 16px 0px 24px 16px;
+        }
+        &.others{
+            padding: 0px 0px 24px 16px;
+        }
+    }
+}
+
+a{
+    text-decoration: none;
+    font-family: $letterPlexMono;
+    font-size: 16px;
+    display: block;
+    padding-left: 20px;
+    &:hover{
+        color: $buttonColor;
+        text-decoration: line-through;
+    }
+    &:active{
+        color: $activeColor;
+        text-decoration: line-through;
+    }
+}
+
+.menuCheck{
+    &:checked{
+        ~ .menuMobile{
+            display: block;
+            animation-name: move;
+            animation-duration: 1s;
+            left: 0;            
+        }
+        ~ .menuHambu > .menu{
+            display: none;
+        }
+        ~ .menuHambu > .menuContainer{
+            display: flex;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            .init{
+                height: 100%;
+                width: 2px;
+                background-color: $blackColor;
+                transform: rotate(45deg);
+                @extend .center;              
+            }                
+            .end{
+                height: 100%;
+                width: 2px;
+                background-color: $blackColor;
+                transform: rotate(135deg);
+                @extend .center;
+            }
+         }    
+    }
+}
+
+.menuDesktop{
+    display: none;
+}
+
+/*------------Section Tittle---------------*/
+
+.containerTitle{
+    margin: 29px 16px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    .title{
+        @extend .sizeTitle;
+        line-height: 42px;
+        &.world{
+            padding: 0px 10px;
+            text-decoration: line-through;
+        }
+        &.dot{
+            &::after{
+                display: inline-block;
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $blackColor;
+                margin-left: 3px;
+            }
+        }       
+    }
+}
+
+.paragraph{
+    @extend .sizeParagraph;
+    margin: 16px 16px 36px;
+    &.desktop{
+        display: none;
+    }
+}
+
+.containerKnowMore{
+    display: flex;
+    justify-content: center;
+    margin: 0px 16px 24px;
+    .knowMore{    
+        width: 100%;
+        height: 48px;
+        @extend .sizeButton;
+        &:hover{
+            background: linear-gradient(225deg,$buttonColorHoverSecond 0%,$buttonColorHoverFirst 100%);
+            color: $whiteColor;
+        }
+    }
+}
+
+/*------------Section Spotify---------------*/
+
+.containerSpotify{
+    position: relative;
+    &::before{
+        content: '';
+        width: 100%;
+        height: 96%;
+        background: linear-gradient(225deg,$spotifyBackColorFirst 0%,$spotifyBackColorSecond 100%);
+        position: absolute;
+        transform: skew(0, -8deg);
+        z-index: -1;
+        margin: 23px 0px 0px;
+    }
+    .containerContentSpotify{
+        position: relative;
+        padding: 64px 0px 144px;
+        span{
+            @extend .sizeTitle;
+            color: $whiteColor;
+            margin: 0px 16px;
+            line-height: 42px;
+        }
+        .containerIframe{
+            display: flex;
+            flex-direction: column;
+            &.left{
+                margin: 21px 11px 0px;
+            }
+            &.right{
+                margin: 0px 11px;
+            }
+            .sintaxRuby{
+                &.sintax{
+                    margin: 11px 0px;
+                }
+                &.ruby{
+                    margin: 11px 0px 0px;
+                }
+            }
+        }
+    }
+}
+
+/*------------Section Phone---------------*/
+
+.containerPhone{
+    margin: -96px 16px 0px;
+    .phone{
+        width: 100%;
+        max-height: 660px;
+    }
+    .contentPhone{
+        margin: 27px 0px 0px;
+        h2{
+            @extend .sizeTitle;
+            line-height: 42px;
+        }
+        .contentParagrah{
+            margin: 8px 0px 0px;
+            .content{
+                @extend .sizeParagraph;
+                &.first{
+                    padding: 0px 0px 10px;
+                }
+            }
+        }
+    }
+}
+
+/*------------Section Guests---------------*/
+
+.containerGuests{
+    h3{
+        margin: 54px 16px 14px;
+        @extend .sizeTitle;
+        line-height: 42px;
+    }
+    .guests{
+        display: flex;
+        flex-wrap: wrap;
+        img{
+            max-height: 243px;
+            width: 100%;
+        }
+    }
+}
+
+/*------------Section Some Themes---------------*/
+
+.containerSomeThemes{
+    margin: 48px 16px 42px;
+    h4{
+        @extend .sizeTitle;
+        line-height: 42px;
+    }
+    .contentSomeThemes{
+        .someThemes{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            span{
+                @extend .sizeSubTitle;
+                text-align: center;
+            }
+            &.job{
+                margin: 24px 0px 36px;
+            }
+            &.program{
+                margin: 0px 0px 52px;
+            }
+            img{
+                width: 104px;
+                height: 104px;
+            }
+        }
+    }
+}
+
+/*------------Section News---------------*/
+
+.containerNews{
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0px 0px;
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(225deg,$spotifyBackColorFirst 0%,$spotifyBackColorSecond 100%);
+        position: absolute;
+        transform: skew(0, -8deg);
+        z-index: -1;
+        margin: -41px 0px 0px;
+        padding: 0px 0px 30px;
+    }
+    h5{
+        @extend .sizeTitle;
+        line-height: 42px;
+        color: $whiteColor;
+        margin: 0px 16px 0px;
+        text-align: center;
+    }
+    .containerButton{
+        margin: 64px 16px 0px;
+        padding: 0px 0px 67px;
+        .listen{    
+            width: 100%;
+            height: 48px;
+            @extend .sizeButton;
+            &:hover{
+                background: linear-gradient(225deg,$buttonColorHoverSecond 0%,$buttonColorHoverFirst 100%);
+                color: $whiteColor;
+            }
+        }
+    }
+}
+
+/*------------Footer---------------*/
+
+.containerFooter{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $whiteColor;
+    padding: 24px 0px 0px;
+    span{
+        @extend .sizeParagraph;
+        text-align: center;
+    }
+    .footerRight{
+        margin: 16px 45px 31px;
+        display: flex;
+        justify-content: space-between;
+        .social{
+            width: 16px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+/*------------Menu Animation---------------*/
+
+@keyframes move{
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+/*------------Media query 768px---------------*/
+
+@media (min-width:768px){
+    /*------------Header---------------*/
+    header{
+        margin: 22px 25px;
+    }
+    .menuMobile{
+        top: 68px;
+    }
+    /*------------Section Tittle---------------*/
+    .containerTitle{
+        margin: 29px 50px 0px;
+        .title{
+            font-size: 54px;
+            line-height: 70px;
+            &.world{
+                padding: 0px 13px;
+            }
+        }
+    }
+    .paragraph{
+        width: 628px;
+        margin: 0px 50px 56px;
+        &.mobile{
+            display: none;
+        }
+        &.desktop{
+            display: block;
+        }
+    }
+    .containerKnowMore{
+        justify-content: flex-start;
+        margin: 0px 50px 24px;
+        .knowMore{    
+            width: 226px;
+            height: 56px;
+        }
+    }
+    /*------------Section Spotify---------------*/
+    .containerSpotify{
+        &::before{
+            transform: skew(0, -6deg);
+            margin: 42px 0px 0px;
+            height: 90%;
+        }
+        .containerContentSpotify{
+            padding: 100px 0px 180px;            
+            span{
+                margin: 0px 50px;
+            }
+            .containerIframe{
+                flex-direction: row;
+                &.left{
+                    margin: 26px 25px 36px;
+                }
+                &.right{
+                    margin: 0px 25px 0px;
+                }
+                .jsRework{
+                    width: 100%;
+                    margin: 0px 36px 0px 0px;
+                }
+                .sintaxRuby{
+                    width: 100%;
+                    &.sintax{
+                        margin: 0px;
+                    }
+                    &.ruby{
+                        margin: 0px;
+                    }
+                }
+            }
+        }        
+    }
+    /*------------Section Phone---------------*/
+    .containerPhone{
+        margin: -120px 50px 0px;
+        display: flex;
+        .phone{
+            width: 458px;
+            height: 660px;
+        }
+        .contentPhone{
+            margin: 0px 0px 0px 31px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .contentParagrah{
+                margin: 12px 0px 0px;
+            }
+        }
+    }
+    /*------------Section Guests---------------*/
+    .containerGuests{
+        h3{
+            margin: 54px 50px 14px;
+        }
+        .guests{
+            flex-wrap: nowrap;
+            img{
+                width: 33.3%;
+            }
+        }
+    }
+    /*------------Section Some Themes---------------*/
+    .containerSomeThemes{
+        margin: 48px 50px 34px;
+        .contentSomeThemes{
+            display: flex;
+            margin: 56px 0px 0px;
+            .someThemes{
+                width: 25%;
+                &.job{
+                    margin: 0px;
+                }
+                &.program{
+                    margin: 0px;
+                }
+            }
+        }
+    }
+    /*------------Section News---------------*/
+    .containerNews{
+        padding: 106px 0px 0px;
+        &::before{
+            transform: skew(0, -6deg);
+            margin: -65px 0px 0px;
+        }
+        h5{
+            margin: 0px;
+        }
+        .containerButton{
+            display: flex;
+            justify-content: center;
+            margin: 36px 0px 0px;
+            padding: 0px 0px 151px;
+            .listen{    
+                width: 345px;
+                height: 56px;
+            }
+        }
+    }
+    /*------------Footer---------------*/
+    .containerFooter{
+        flex-direction: row;
+        padding: 36px 25px 31px;
+        justify-content: space-between;
+        .footerRight{
+            margin: 0px;
+            .social{
+                &.distant{
+                    margin: 0px 36px 0px 0px;
+                }
+            }
+        }
+    }
+}
+
+/*------------Media query 1024px---------------*/
+
+@media (min-width:1024px){
+    /*------------Header---------------*/
+    header{
+        margin: 22px 100px;
+        .container{
+            img{
+                width: 36px;
+                height: 36px;
+            }
+            .leftColumn{
+                .menuHambu > div{
+                    display: none;
+                }
+                .menuDesktop{
+                    display: flex;
+                    a{
+                        color: $linkColor;
+                        padding-left: 0px;
+                        line-height: 28px;
+                        &.space{
+                            margin: 0px 0px 0px 48px;
+                        }
+                    }
+                }
+            } 
+        }
+    }   
+    /*------------Section Tittle---------------*/
+    .containerTitle{
+        margin: 120px 100px 0px 200px;
+        .title{
+            font-size: 64px;
+            line-height: 84px;
+            &.world{
+                padding: 0px 0px 0px 16px;
+            }
+            &.dot{
+                padding: 0px 0px 0px 7px;
+                &::after{
+                    background-color: $baseColor;
+                }
+            }
+        }
+    }
+    .paragraph{
+        margin: 0px 200px 56px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .containerKnowMore{
+        margin: 0px 200px 0px;
+    }
+    /*------------Section Spotify---------------*/
+    .containerSpotify{
+        &::before{
+            margin: 81px 0px 0px;
+            height: 87%;
+        }
+        .containerContentSpotify{
+            padding: 186px 0px 233px;
+            span{
+                font-size: 48px;
+                margin: 0px 200px;
+                line-height: 62px;
+            }
+            .containerIframe{
+                &.left{
+                    margin: 26px 100px 72px;
+                }
+                &.right{
+                    margin: 0px 100px 0px;
+                }
+                .jsRework{
+                    margin: 0px 72px 0px 0px;
+                }
+            }
+        }        
+    }
+    /*------------Section Phone---------------*/
+    .containerPhone{
+        margin: -169px 100px 0px 200px;
+        .contentPhone{
+            margin: 0px 0px 0px 62px;
+            h2{
+                font-size: 48px;
+                line-height: 62px;
+            }
+            .contentParagrah{
+                max-width: 464px;
+                max-height: 204px;
+                margin: 24px 0px 0px;
+                .content{
+                    font-size: 16px;
+                    line-height: 24px;
+                    &.first{
+                        padding: 0px 0px 12px;
+                    }
+                }
+            }
+        }
+    }
+    /*------------Section Guests---------------*/
+    .containerGuests{
+        h3{
+            margin: 64px 100px 36px 200px;
+            font-size: 48px;
+            line-height: 62px;
+        }
+        .guests{
+            img{
+                max-height: 364px;
+            }
+        }
+    }
+    /*------------Section Some Themes---------------*/
+    .containerSomeThemes{
+        margin: 64px 200px 34px;
+        h4{
+            font-size: 48px;
+            line-height: 62px;
+        }
+        .contentSomeThemes{
+            margin: 56px 0px 0px;
+            flex-wrap: wrap;
+            .someThemes{
+                .image{
+                    display: flex;
+                    justify-content: center;
+                    height: 130px;
+                    align-items: center;
+                }
+                span{
+                    max-width: 220px;
+                    margin: 16px 0px 0px;
+                }
+            }
+        }
+    }
+    /*------------Section News---------------*/
+    .containerNews{
+        padding: 213px 0px 0px;
+        &::before{
+            margin: -95px 0px 0px;
+        }
+        h5{
+            font-size: 48px;
+            line-height: 62px;
+        }
+    }
+    /*------------Footer---------------*/
+    .containerFooter{
+        padding: 36px 100px 31px;
+        span{
+            font-size: 16px;
+        }
+        .footerRight{
+            .social{
+                width: 18px;
+            }
+        }
+    }
+}

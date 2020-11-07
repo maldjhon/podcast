@@ -1,0 +1,681 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap");
+/*----Colors-----*/
+/*----Font Family-----*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  margin: 10px 16px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+header .container .leftColumn {
+  display: flex;
+  align-items: center;
+}
+
+.center, .menuCheck:checked ~ .menuHambu > .menuContainer .end, .menuCheck:checked ~ .menuHambu > .menuContainer .init {
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.sizeTitle, .containerNews h5, .containerSomeThemes h4, .containerGuests h3, .containerPhone .contentPhone h2, .containerSpotify .containerContentSpotify span, .containerTitle .title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.sizeParagraph, .containerFooter span, .containerPhone .contentPhone .contentParagrah .content, .paragraph {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.sizeSubTitle, .containerSomeThemes .contentSomeThemes .someThemes span {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sizeButton, .containerNews .containerButton .listen, .containerKnowMore .knowMore {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 18px;
+  background-color: #00F3BB;
+  border: none;
+}
+
+/*------------Header---------------*/
+.menu {
+  width: 20px;
+  height: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu::before, .menu::after {
+  content: "";
+  height: 3px;
+  border-radius: 2px;
+  background-color: black;
+}
+.menu .icono {
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+  margin: 2px 0px;
+}
+
+.menuCheck {
+  position: absolute;
+  visibility: hidden;
+}
+
+.menuMobile {
+  width: 100%;
+  background-color: #0000EC;
+  position: absolute;
+  left: -100%;
+  top: 44px;
+  display: none;
+  z-index: 1;
+}
+.menuMobile a {
+  color: white;
+}
+.menuMobile a.episode {
+  padding: 16px 0px 24px 16px;
+}
+.menuMobile a.others {
+  padding: 0px 0px 24px 16px;
+}
+
+a {
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  display: block;
+  padding-left: 20px;
+}
+a:hover {
+  color: #00F3BB;
+  text-decoration: line-through;
+}
+a:active {
+  color: rgba(6, 10, 36, 0.56);
+  text-decoration: line-through;
+}
+
+.menuCheck:checked ~ .menuMobile {
+  display: block;
+  animation-name: move;
+  animation-duration: 1s;
+  left: 0;
+}
+.menuCheck:checked ~ .menuHambu > .menu {
+  display: none;
+}
+.menuCheck:checked ~ .menuHambu > .menuContainer {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.menuCheck:checked ~ .menuHambu > .menuContainer .init {
+  height: 100%;
+  width: 2px;
+  background-color: black;
+  transform: rotate(45deg);
+}
+.menuCheck:checked ~ .menuHambu > .menuContainer .end {
+  height: 100%;
+  width: 2px;
+  background-color: black;
+  transform: rotate(135deg);
+}
+
+.menuDesktop {
+  display: none;
+}
+
+/*------------Section Tittle---------------*/
+.containerTitle {
+  margin: 29px 16px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerTitle .title {
+  line-height: 42px;
+}
+.containerTitle .title.world {
+  padding: 0px 10px;
+  text-decoration: line-through;
+}
+.containerTitle .title.dot::after {
+  display: inline-block;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: black;
+  margin-left: 3px;
+}
+
+.paragraph {
+  margin: 16px 16px 36px;
+}
+.paragraph.desktop {
+  display: none;
+}
+
+.containerKnowMore {
+  display: flex;
+  justify-content: center;
+  margin: 0px 16px 24px;
+}
+.containerKnowMore .knowMore {
+  width: 100%;
+  height: 48px;
+}
+.containerKnowMore .knowMore:hover {
+  background: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+  color: white;
+}
+
+/*------------Section Spotify---------------*/
+.containerSpotify {
+  position: relative;
+}
+.containerSpotify::before {
+  content: "";
+  width: 100%;
+  height: 96%;
+  background: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+  position: absolute;
+  transform: skew(0, -8deg);
+  z-index: -1;
+  margin: 23px 0px 0px;
+}
+.containerSpotify .containerContentSpotify {
+  position: relative;
+  padding: 64px 0px 144px;
+}
+.containerSpotify .containerContentSpotify span {
+  color: white;
+  margin: 0px 16px;
+  line-height: 42px;
+}
+.containerSpotify .containerContentSpotify .containerIframe {
+  display: flex;
+  flex-direction: column;
+}
+.containerSpotify .containerContentSpotify .containerIframe.left {
+  margin: 21px 11px 0px;
+}
+.containerSpotify .containerContentSpotify .containerIframe.right {
+  margin: 0px 11px;
+}
+.containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.sintax {
+  margin: 11px 0px;
+}
+.containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.ruby {
+  margin: 11px 0px 0px;
+}
+
+/*------------Section Phone---------------*/
+.containerPhone {
+  margin: -96px 16px 0px;
+}
+.containerPhone .phone {
+  width: 100%;
+  max-height: 660px;
+}
+.containerPhone .contentPhone {
+  margin: 27px 0px 0px;
+}
+.containerPhone .contentPhone h2 {
+  line-height: 42px;
+}
+.containerPhone .contentPhone .contentParagrah {
+  margin: 8px 0px 0px;
+}
+.containerPhone .contentPhone .contentParagrah .content.first {
+  padding: 0px 0px 10px;
+}
+
+/*------------Section Guests---------------*/
+.containerGuests h3 {
+  margin: 54px 16px 14px;
+  line-height: 42px;
+}
+.containerGuests .guests {
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerGuests .guests img {
+  max-height: 243px;
+  width: 100%;
+}
+
+/*------------Section Some Themes---------------*/
+.containerSomeThemes {
+  margin: 48px 16px 42px;
+}
+.containerSomeThemes h4 {
+  line-height: 42px;
+}
+.containerSomeThemes .contentSomeThemes .someThemes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerSomeThemes .contentSomeThemes .someThemes span {
+  text-align: center;
+}
+.containerSomeThemes .contentSomeThemes .someThemes.job {
+  margin: 24px 0px 36px;
+}
+.containerSomeThemes .contentSomeThemes .someThemes.program {
+  margin: 0px 0px 52px;
+}
+.containerSomeThemes .contentSomeThemes .someThemes img {
+  width: 104px;
+  height: 104px;
+}
+
+/*------------Section News---------------*/
+.containerNews {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0px 0px;
+}
+.containerNews::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+  position: absolute;
+  transform: skew(0, -8deg);
+  z-index: -1;
+  margin: -41px 0px 0px;
+  padding: 0px 0px 30px;
+}
+.containerNews h5 {
+  line-height: 42px;
+  color: white;
+  margin: 0px 16px 0px;
+  text-align: center;
+}
+.containerNews .containerButton {
+  margin: 64px 16px 0px;
+  padding: 0px 0px 67px;
+}
+.containerNews .containerButton .listen {
+  width: 100%;
+  height: 48px;
+}
+.containerNews .containerButton .listen:hover {
+  background: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+  color: white;
+}
+
+/*------------Footer---------------*/
+.containerFooter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 24px 0px 0px;
+}
+.containerFooter span {
+  text-align: center;
+}
+.containerFooter .footerRight {
+  margin: 16px 45px 31px;
+  display: flex;
+  justify-content: space-between;
+}
+.containerFooter .footerRight .social {
+  width: 16px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*------------Menu Animation---------------*/
+@keyframes move {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+/*------------Media query 768px---------------*/
+@media (min-width: 768px) {
+  /*------------Header---------------*/
+  header {
+    margin: 22px 25px;
+  }
+
+  .menuMobile {
+    top: 68px;
+  }
+
+  /*------------Section Tittle---------------*/
+  .containerTitle {
+    margin: 29px 50px 0px;
+  }
+  .containerTitle .title {
+    font-size: 54px;
+    line-height: 70px;
+  }
+  .containerTitle .title.world {
+    padding: 0px 13px;
+  }
+
+  .paragraph {
+    width: 628px;
+    margin: 0px 50px 56px;
+  }
+  .paragraph.mobile {
+    display: none;
+  }
+  .paragraph.desktop {
+    display: block;
+  }
+
+  .containerKnowMore {
+    justify-content: flex-start;
+    margin: 0px 50px 24px;
+  }
+  .containerKnowMore .knowMore {
+    width: 226px;
+    height: 56px;
+  }
+
+  /*------------Section Spotify---------------*/
+  .containerSpotify::before {
+    transform: skew(0, -6deg);
+    margin: 42px 0px 0px;
+    height: 90%;
+  }
+  .containerSpotify .containerContentSpotify {
+    padding: 100px 0px 180px;
+  }
+  .containerSpotify .containerContentSpotify span {
+    margin: 0px 50px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe {
+    flex-direction: row;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe.left {
+    margin: 26px 25px 36px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe.right {
+    margin: 0px 25px 0px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe .jsRework {
+    width: 100%;
+    margin: 0px 36px 0px 0px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby {
+    width: 100%;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.sintax {
+    margin: 0px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.ruby {
+    margin: 0px;
+  }
+
+  /*------------Section Phone---------------*/
+  .containerPhone {
+    margin: -120px 50px 0px;
+    display: flex;
+  }
+  .containerPhone .phone {
+    width: 458px;
+    height: 660px;
+  }
+  .containerPhone .contentPhone {
+    margin: 0px 0px 0px 31px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .containerPhone .contentPhone .contentParagrah {
+    margin: 12px 0px 0px;
+  }
+
+  /*------------Section Guests---------------*/
+  .containerGuests h3 {
+    margin: 54px 50px 14px;
+  }
+  .containerGuests .guests {
+    flex-wrap: nowrap;
+  }
+  .containerGuests .guests img {
+    width: 33.3%;
+  }
+
+  /*------------Section Some Themes---------------*/
+  .containerSomeThemes {
+    margin: 48px 50px 34px;
+  }
+  .containerSomeThemes .contentSomeThemes {
+    display: flex;
+    margin: 56px 0px 0px;
+  }
+  .containerSomeThemes .contentSomeThemes .someThemes {
+    width: 25%;
+  }
+  .containerSomeThemes .contentSomeThemes .someThemes.job {
+    margin: 0px;
+  }
+  .containerSomeThemes .contentSomeThemes .someThemes.program {
+    margin: 0px;
+  }
+
+  /*------------Section News---------------*/
+  .containerNews {
+    padding: 106px 0px 0px;
+  }
+  .containerNews::before {
+    transform: skew(0, -6deg);
+    margin: -65px 0px 0px;
+  }
+  .containerNews h5 {
+    margin: 0px;
+  }
+  .containerNews .containerButton {
+    display: flex;
+    justify-content: center;
+    margin: 36px 0px 0px;
+    padding: 0px 0px 151px;
+  }
+  .containerNews .containerButton .listen {
+    width: 345px;
+    height: 56px;
+  }
+
+  /*------------Footer---------------*/
+  .containerFooter {
+    flex-direction: row;
+    padding: 36px 25px 31px;
+    justify-content: space-between;
+  }
+  .containerFooter .footerRight {
+    margin: 0px;
+  }
+  .containerFooter .footerRight .social.distant {
+    margin: 0px 36px 0px 0px;
+  }
+}
+/*------------Media query 1024px---------------*/
+@media (min-width: 1024px) {
+  /*------------Header---------------*/
+  header {
+    margin: 22px 100px;
+  }
+  header .container img {
+    width: 36px;
+    height: 36px;
+  }
+  header .container .leftColumn .menuHambu > div {
+    display: none;
+  }
+  header .container .leftColumn .menuDesktop {
+    display: flex;
+  }
+  header .container .leftColumn .menuDesktop a {
+    color: #060A24;
+    padding-left: 0px;
+    line-height: 28px;
+  }
+  header .container .leftColumn .menuDesktop a.space {
+    margin: 0px 0px 0px 48px;
+  }
+
+  /*------------Section Tittle---------------*/
+  .containerTitle {
+    margin: 120px 100px 0px 200px;
+  }
+  .containerTitle .title {
+    font-size: 64px;
+    line-height: 84px;
+  }
+  .containerTitle .title.world {
+    padding: 0px 0px 0px 16px;
+  }
+  .containerTitle .title.dot {
+    padding: 0px 0px 0px 7px;
+  }
+  .containerTitle .title.dot::after {
+    background-color: #0000EC;
+  }
+
+  .paragraph {
+    margin: 0px 200px 56px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .containerKnowMore {
+    margin: 0px 200px 0px;
+  }
+
+  /*------------Section Spotify---------------*/
+  .containerSpotify::before {
+    margin: 81px 0px 0px;
+    height: 87%;
+  }
+  .containerSpotify .containerContentSpotify {
+    padding: 186px 0px 233px;
+  }
+  .containerSpotify .containerContentSpotify span {
+    font-size: 48px;
+    margin: 0px 200px;
+    line-height: 62px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe.left {
+    margin: 26px 100px 72px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe.right {
+    margin: 0px 100px 0px;
+  }
+  .containerSpotify .containerContentSpotify .containerIframe .jsRework {
+    margin: 0px 72px 0px 0px;
+  }
+
+  /*------------Section Phone---------------*/
+  .containerPhone {
+    margin: -169px 100px 0px 200px;
+  }
+  .containerPhone .contentPhone {
+    margin: 0px 0px 0px 62px;
+  }
+  .containerPhone .contentPhone h2 {
+    font-size: 48px;
+    line-height: 62px;
+  }
+  .containerPhone .contentPhone .contentParagrah {
+    max-width: 464px;
+    max-height: 204px;
+    margin: 24px 0px 0px;
+  }
+  .containerPhone .contentPhone .contentParagrah .content {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .containerPhone .contentPhone .contentParagrah .content.first {
+    padding: 0px 0px 12px;
+  }
+
+  /*------------Section Guests---------------*/
+  .containerGuests h3 {
+    margin: 64px 100px 36px 200px;
+    font-size: 48px;
+    line-height: 62px;
+  }
+  .containerGuests .guests img {
+    max-height: 364px;
+  }
+
+  /*------------Section Some Themes---------------*/
+  .containerSomeThemes {
+    margin: 64px 200px 34px;
+  }
+  .containerSomeThemes h4 {
+    font-size: 48px;
+    line-height: 62px;
+  }
+  .containerSomeThemes .contentSomeThemes {
+    margin: 56px 0px 0px;
+    flex-wrap: wrap;
+  }
+  .containerSomeThemes .contentSomeThemes .someThemes .image {
+    display: flex;
+    justify-content: center;
+    height: 130px;
+    align-items: center;
+  }
+  .containerSomeThemes .contentSomeThemes .someThemes span {
+    max-width: 220px;
+    margin: 16px 0px 0px;
+  }
+
+  /*------------Section News---------------*/
+  .containerNews {
+    padding: 213px 0px 0px;
+  }
+  .containerNews::before {
+    margin: -95px 0px 0px;
+  }
+  .containerNews h5 {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  /*------------Footer---------------*/
+  .containerFooter {
+    padding: 36px 100px 31px;
+  }
+  .containerFooter span {
+    font-size: 16px;
+  }
+  .containerFooter .footerRight .social {
+    width: 18px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
