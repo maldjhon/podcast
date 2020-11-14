@@ -20,7 +20,7 @@ header .container .leftColumn {
   align-items: center;
 }
 
-.center, .menuCheck:checked ~ .menuHambu > .menuContainer .end, .menuCheck:checked ~ .menuHambu > .menuContainer .init {
+.center, .menuCheck:checked ~ .menuContainer .end, .menuCheck:checked ~ .menuContainer .init {
   position: absolute;
   margin: 0 auto;
   top: 0;
@@ -28,7 +28,7 @@ header .container .leftColumn {
   right: 0;
 }
 
-.sizeTitle, .containerNews h5, .containerSomeThemes h4, .containerGuests h3, .containerPhone .contentPhone h2, .containerSpotify .containerContentSpotify span, .containerTitle .title {
+.sizeTitle, .containerNews h5, .containerSomeThemes h4, .containerGuests h3, .containerPhone .contentPhone h2, .containerSpotify .containerContentSpotify h2, .containerTitle .title {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 36px;
   font-weight: normal;
@@ -90,6 +90,19 @@ header .container .leftColumn {
 }
 .menuMobile a {
   color: white;
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  display: block;
+  padding-left: 20px;
+}
+.menuMobile a:hover {
+  color: #00F3BB;
+  text-decoration: line-through;
+}
+.menuMobile a:active {
+  color: rgba(6, 10, 36, 0.56);
+  text-decoration: line-through;
 }
 .menuMobile a.episode {
   padding: 16px 0px 24px 16px;
@@ -98,44 +111,28 @@ header .container .leftColumn {
   padding: 0px 0px 24px 16px;
 }
 
-a {
-  text-decoration: none;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
-  display: block;
-  padding-left: 20px;
-}
-a:hover {
-  color: #00F3BB;
-  text-decoration: line-through;
-}
-a:active {
-  color: rgba(6, 10, 36, 0.56);
-  text-decoration: line-through;
-}
-
 .menuCheck:checked ~ .menuMobile {
   display: block;
   animation-name: move;
   animation-duration: 1s;
   left: 0;
 }
-.menuCheck:checked ~ .menuHambu > .menu {
+.menuCheck:checked ~ .menu {
   display: none;
 }
-.menuCheck:checked ~ .menuHambu > .menuContainer {
+.menuCheck:checked ~ .menuContainer {
   display: flex;
   width: 20px;
   height: 20px;
   position: relative;
 }
-.menuCheck:checked ~ .menuHambu > .menuContainer .init {
+.menuCheck:checked ~ .menuContainer .init {
   height: 100%;
   width: 2px;
   background-color: black;
   transform: rotate(45deg);
 }
-.menuCheck:checked ~ .menuHambu > .menuContainer .end {
+.menuCheck:checked ~ .menuContainer .end {
   height: 100%;
   width: 2px;
   background-color: black;
@@ -146,9 +143,20 @@ a:active {
   display: none;
 }
 
+.menuHambu {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
 /*------------Section Tittle---------------*/
 .containerTitle {
   margin: 29px 16px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerTitle h1 {
   display: flex;
   flex-wrap: wrap;
 }
@@ -208,7 +216,7 @@ a:active {
   position: relative;
   padding: 64px 0px 144px;
 }
-.containerSpotify .containerContentSpotify span {
+.containerSpotify .containerContentSpotify h2 {
   color: white;
   margin: 0px 16px;
   line-height: 42px;
@@ -218,16 +226,21 @@ a:active {
   flex-direction: column;
 }
 .containerSpotify .containerContentSpotify .containerIframe.left {
-  margin: 21px 11px 0px;
+  margin: 21px 9.5px 0px;
 }
 .containerSpotify .containerContentSpotify .containerIframe.right {
-  margin: 0px 11px;
+  margin: 0px 9.5px;
 }
 .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.sintax {
   margin: 11px 0px;
 }
 .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.ruby {
   margin: 11px 0px 0px;
+}
+.containerSpotify .containerContentSpotify .containerIframe iframe {
+  height: 232px;
+  width: 100%;
+  border: none;
 }
 
 /*------------Section Phone---------------*/
@@ -350,6 +363,9 @@ a:active {
   align-items: center;
   justify-content: center;
 }
+.containerFooter .footerRight .social a i {
+  color: #060A24;
+}
 
 /*------------Menu Animation---------------*/
 @keyframes move {
@@ -412,7 +428,7 @@ a:active {
   .containerSpotify .containerContentSpotify {
     padding: 100px 0px 180px;
   }
-  .containerSpotify .containerContentSpotify span {
+  .containerSpotify .containerContentSpotify h2 {
     margin: 0px 50px;
   }
   .containerSpotify .containerContentSpotify .containerIframe {
@@ -425,11 +441,7 @@ a:active {
     margin: 0px 25px 0px;
   }
   .containerSpotify .containerContentSpotify .containerIframe .jsRework {
-    width: 100%;
     margin: 0px 36px 0px 0px;
-  }
-  .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby {
-    width: 100%;
   }
   .containerSpotify .containerContentSpotify .containerIframe .sintaxRuby.sintax {
     margin: 0px;
@@ -531,7 +543,13 @@ a:active {
     width: 36px;
     height: 36px;
   }
-  header .container .leftColumn .menuHambu > div {
+  header .container .leftColumn .menu {
+    display: none;
+  }
+  header .container .leftColumn .menuContainer {
+    display: none;
+  }
+  header .container .leftColumn .menuMobile {
     display: none;
   }
   header .container .leftColumn .menuDesktop {
@@ -541,6 +559,17 @@ a:active {
     color: #060A24;
     padding-left: 0px;
     line-height: 28px;
+    text-decoration: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+  }
+  header .container .leftColumn .menuDesktop a:hover {
+    color: #00F3BB;
+    text-decoration: line-through;
+  }
+  header .container .leftColumn .menuDesktop a:active {
+    color: rgba(6, 10, 36, 0.56);
+    text-decoration: line-through;
   }
   header .container .leftColumn .menuDesktop a.space {
     margin: 0px 0px 0px 48px;
@@ -582,7 +611,7 @@ a:active {
   .containerSpotify .containerContentSpotify {
     padding: 186px 0px 233px;
   }
-  .containerSpotify .containerContentSpotify span {
+  .containerSpotify .containerContentSpotify h2 {
     font-size: 48px;
     margin: 0px 200px;
     line-height: 62px;
