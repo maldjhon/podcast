@@ -13,35 +13,35 @@
             <img src="./assets/logo.svg" alt="logo pagina">
             <div class="leftColumn">
                 <input type="checkbox" id="menuCheck" class="menuCheck">               
-                <label for="menuCheck" class="menuHambu">
-                    <div class="menu">
-                        <div class="icono"></div>
-                    </div>
-                    <div class="menuContainer">
-                        <div class="init"></div>
-                        <div class="end"></div>
-                    </div>
-                </label> 
+                <label for="menuCheck" class="menuHambu"></label> 
+                <div class="menu">
+                    <div class="icono"></div>
+                </div>
+                <div class="menuContainer">
+                    <div class="init"></div>
+                    <div class="end"></div>
+                </div>
                 <div class="menuMobile">
-                    <a href="" class="episode">EPISODIOS</a>
-                    <a href="" class="others">NOSOTROS</a>
-                    <a href="" class="others">ENTREVISTAS</a>
-                    <a href="" class="others">TÓPICOS</a>
+                    <a href="#episode" class="episode">EPISODIOS</a>
+                    <a href="#whereFrom" class="others">NOSOTROS</a>
+                    <a href="#guest" class="others">ENTREVISTAS</a>
+                    <a href="#someTheme" class="others">TÓPICOS</a>
                 </div>
                 <div class="menuDesktop">
-                    <a href="">EPISODIOS</a>
-                    <a href="" class="space">NOSOTROS</a>
-                    <a href="" class="space">ENTREVISTAS</a>
-                    <a href="" class="space">TÓPICOS</a>
+                    <a href="#episode">EPISODIOS</a>
+                    <a href="#whereFrom" class="space">NOSOTROS</a>
+                    <a href="#guest" class="space">ENTREVISTAS</a>
+                    <a href="#someTheme" class="space">TÓPICOS</a>
                 </div>
             </div>
         </div>        
     </header>
     <section class="secTitle">
         <div class="containerTitle">
-            <span class="title start">Hello</span>
-             <span class="title world">world</span>
-            <span class="title dot">pale blue dot</span>
+            <h1 class="title start">Hello
+                <span class="title world">world</span>
+                <span class="title dot">pale blue dot</span>
+            </h1>
         </div>
         <p class="paragraph mobile">Un podcast que explora el mundo de la programación. Nuevo episodios, todos los jueves cada 15 días.</p>
         <p class="paragraph desktop">El portal de podcasts que explora el mundo de la programación y la tecnología. Nuevos episodios, todos los jueves cada 15 días.</p>
@@ -52,14 +52,14 @@
     <section class="secSpotify">
         <div class="containerSpotify">
             <div class="containerContentSpotify">
-                <span>Episodios</span>
+                <h2 id="episode">Episodios</h2>
                 <div class="containerIframe left">
-                    <iframe src="https://open.spotify.com/embed-podcast/show/2ySVrxGkN6n6frMTo9Nsrt" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media" class="jsRework"></iframe>
-                    <iframe src="https://open.spotify.com/embed-podcast/show/4kYCRYJ3yK5DQbP5tbfZby" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media" class="sintaxRuby sintax"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/show/2ySVrxGkN6n6frMTo9Nsrt" allow="encrypted-media" class="jsRework"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/show/4kYCRYJ3yK5DQbP5tbfZby" allow="encrypted-media" class="sintaxRuby sintax"></iframe>
                 </div>
                 <div class="containerIframe right">
-                    <iframe src="https://open.spotify.com/embed-podcast/show/5JxcIaIkN8zx3Zy7yD9snv" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media" class="jsRework"></iframe>
-                    <iframe src="https://open.spotify.com/embed-podcast/show/2Iibd5A6R7mxkCm4NwNmUn" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media" class="sintaxRuby ruby"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/show/5JxcIaIkN8zx3Zy7yD9snv" allow="encrypted-media" class="jsRework"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/show/2Iibd5A6R7mxkCm4NwNmUn" allow="encrypted-media" class="sintaxRuby ruby"></iframe>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="containerPhone">
             <img src="./assets/phone.png" alt="phone" class="phone">
             <div class="contentPhone">
-                <h2>De dónde venimos</h2>
+                <h2 id="whereFrom">De dónde venimos</h2>
                 <div class="contentParagrah">
                     <p class="content first">Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light.</p>
                     <p class="content">Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.</p>
@@ -78,22 +78,22 @@
     </section>
     <section class="secGuests">
         <div class="containerGuests">
-            <h3>Invitadas/os estelares</h3>
+            <h3 id="guest">Invitadas/os estelares</h3>
             <div class="guests">
                 <img src="./assets/grace-hopper.png" alt="grace-hopper">
                 <img src="./assets/Katie-Bouman.png" alt="Katie-Bouman">
                 <img src="./assets/Margaret_Hamilton.png" alt="Margaret_Hamilton">
             </div>
             <div class="guests">
-                <img src="./assets/An E.R.A.Univac 1103 computer in the 1950s.png" alt="computer in the 1950s">
-                <img src="./assets/Computer operators with an Eniac — the world’s first programmable general-purpose computer.png" alt="first programmable general-purpose computer">
+                <img src="./assets/An_E.R.A.Univac_1103_computer_in_the_1950s.png" alt="computer in the 1950s">
+                <img src="./assets/Computer_operators_with_an_Eniac_the_world’s_first_programmable_general_purpose_computer.png" alt="first programmable general-purpose computer">
                 <img src="./assets/susan-kare.png" alt="susan-kare">
             </div>
         </div>
     </section>
     <section class="secSomeThemes">
         <div class="containerSomeThemes">
-            <h4>Algunos de nuestros temas</h4>
+            <h4 id="someTheme">Algunos de nuestros temas</h4>
             <div class="contentSomeThemes">
                 <div class="someThemes job">
                     <div class="image">
@@ -104,7 +104,7 @@
                 <div class="someThemes program">
                     <div class="image">
                         <img src="./assets/icon2.svg" alt="icon2">
-                    </div class="image">
+                    </div>
                     <span>Repensando la programación</span>
                 </div>
                 <div class="someThemes program">
@@ -135,19 +135,19 @@
             <span>© 2019— Hello blue pale dot</span>
             <div class="footerRight">
                 <div class="social distant">
-                    <i class="fab fa-spotify"></i>
+                    <a href="https://www.spotify.com/co/"><i class="fab fa-spotify"></i></a>
                 </div>
                 <div class="social distant">
-                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="social distant">
-                    <i class="fab fa-twitter"></i>
+                    <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                 </div>
                 <div class="social distant">
-                    <i class="fab fa-facebook"></i>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
                 </div>
                 <div class="social">
-                    <i class="fab fa-telegram"></i>
+                    <a href="https://web.telegram.org/"><i class="fab fa-telegram"></i></a>
                 </div>
             </div>
         </div>

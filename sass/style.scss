@@ -92,28 +92,25 @@ header{
     z-index: 1;
     a{
         color: $whiteColor;
+        text-decoration: none;
+        font-family: $letterPlexMono;
+        font-size: 16px;
+        display: block;
+        padding-left: 20px;
+        &:hover{
+            color: $buttonColor;
+            text-decoration: line-through;
+        }
+        &:active{
+            color: $activeColor;
+            text-decoration: line-through;
+        }
         &.episode{
             padding: 16px 0px 24px 16px;
         }
         &.others{
             padding: 0px 0px 24px 16px;
         }
-    }
-}
-
-a{
-    text-decoration: none;
-    font-family: $letterPlexMono;
-    font-size: 16px;
-    display: block;
-    padding-left: 20px;
-    &:hover{
-        color: $buttonColor;
-        text-decoration: line-through;
-    }
-    &:active{
-        color: $activeColor;
-        text-decoration: line-through;
     }
 }
 
@@ -125,10 +122,10 @@ a{
             animation-duration: 1s;
             left: 0;            
         }
-        ~ .menuHambu > .menu{
+        ~ .menu{
             display: none;
         }
-        ~ .menuHambu > .menuContainer{
+        ~ .menuContainer{
             display: flex;
             width: 20px;
             height: 20px;
@@ -155,12 +152,23 @@ a{
     display: none;
 }
 
+.menuHambu{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+}
+
 /*------------Section Tittle---------------*/
 
 .containerTitle{
     margin: 29px 16px 0px;
     display: flex;
     flex-wrap: wrap;
+    h1{
+        display: flex;
+        flex-wrap: wrap;
+    }
     .title{
         @extend .sizeTitle;
         line-height: 42px;
@@ -222,7 +230,7 @@ a{
     .containerContentSpotify{
         position: relative;
         padding: 64px 0px 144px;
-        span{
+        h2{
             @extend .sizeTitle;
             color: $whiteColor;
             margin: 0px 16px;
@@ -232,10 +240,10 @@ a{
             display: flex;
             flex-direction: column;
             &.left{
-                margin: 21px 11px 0px;
+                margin: 21px 9.5px 0px;
             }
             &.right{
-                margin: 0px 11px;
+                margin: 0px 9.5px;
             }
             .sintaxRuby{
                 &.sintax{
@@ -244,6 +252,11 @@ a{
                 &.ruby{
                     margin: 11px 0px 0px;
                 }
+            }
+            iframe{
+                height: 232px;
+                width: 100%;
+                border: none;
             }
         }
     }
@@ -385,6 +398,11 @@ a{
             display: flex;
             align-items: center;
             justify-content: center;
+            a{
+                i{
+                    color: $linkColor;
+                }
+            }
         }
     }
 }
@@ -448,7 +466,7 @@ a{
         }
         .containerContentSpotify{
             padding: 100px 0px 180px;            
-            span{
+            h2{
                 margin: 0px 50px;
             }
             .containerIframe{
@@ -460,11 +478,9 @@ a{
                     margin: 0px 25px 0px;
                 }
                 .jsRework{
-                    width: 100%;
                     margin: 0px 36px 0px 0px;
                 }
                 .sintaxRuby{
-                    width: 100%;
                     &.sintax{
                         margin: 0px;
                     }
@@ -571,7 +587,13 @@ a{
                 height: 36px;
             }
             .leftColumn{
-                .menuHambu > div{
+                .menu{
+                    display: none;
+                }
+                .menuContainer{
+                    display: none;
+                }
+                .menuMobile{
                     display: none;
                 }
                 .menuDesktop{
@@ -580,6 +602,17 @@ a{
                         color: $linkColor;
                         padding-left: 0px;
                         line-height: 28px;
+                        text-decoration: none;
+                        font-family: $letterPlexMono;
+                        font-size: 16px;
+                        &:hover{
+                            color: $buttonColor;
+                            text-decoration: line-through;
+                        }
+                        &:active{
+                            color: $activeColor;
+                            text-decoration: line-through;
+                        }
                         &.space{
                             margin: 0px 0px 0px 48px;
                         }
@@ -621,7 +654,7 @@ a{
         }
         .containerContentSpotify{
             padding: 186px 0px 233px;
-            span{
+            h2{
                 font-size: 48px;
                 margin: 0px 200px;
                 line-height: 62px;
